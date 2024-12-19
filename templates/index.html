@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+</head>
+<body>
+    <h1>free Download</h1>
+    <form method="POST">
+        <label  class ="video" name="video_url">Enter Video URL:</label>
+        <input type="text" name="video_url" id="video_url" required>
+        <button  color = "color" type="submit">Download</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if video_path %}
+        <h2>Downloaded Video:</h2>
+        <video width="640" height="480" controls>
+            <source src="{{ url_for('serve_video', filename=video_path) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    {% endif %}
+</body>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    h1 {
+        text-align: center;
+        background-color: rgba(222, 255, 207, 0.8);
+        padding: 15px;
+        margin: 0;
+        border-bottom: 2px solid #ddd;
+    }
+
+    
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        video {
+            width: 90%;
+        }
+    }
+    label{
+        color: red;
+    }
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(85, 83, 83);
+  color: rgb(253, 253, 253);
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<div class="footer">
+  <p>Made BY  - Tushar verma</p>
+</div>
+    </style>
+</html>
